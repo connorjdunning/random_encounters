@@ -5,7 +5,10 @@
 > If you don't already block ads/trackers/scripts by default, consider doing so.
 
 *Something like StumbleUpon once was but for the OSR*
-[Let's See It](https://connorjdunning.github.io/random_encounters/#) 		
+
+[Let's See It](https://connorjdunning.github.io/random_encounters/#)
+
 [Submit Links](https://docs.google.com/forms/d/e/1FAIpQLSdNWf1qd_zYMNdMUDsFXVbnPLlpizufdAR7EXI-_eS4dfo24A/viewform) *Please read the description.*
+
 ### Contribution
 Aside from submitting links, code contribution and suggestions are highly appreciated! Currently, all links are stored in a humble JS array. The project is a simple static webpage and currently looks poopy on mobile devices. Access time should be fine and the links.js is ~155 kb.
