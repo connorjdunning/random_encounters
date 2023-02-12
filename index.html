@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Random Encounters</title>
-  <link rel="icon" type="image/x-icon" href="hexagon-dice.svg"> <!--  https://iconoir.com/ -->
-  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/x-icon" href="hexagon-dice.svg" />
+  <!--  https://iconoir.com/ -->
+  <link rel="stylesheet" href="index.css" />
 </head>
 
 <body onload="disclaim()">
-  <div class="header">
-
-  </div>
+  <div class="header"></div>
 
   <ul id="nav">
-    <!-- <li><a class="active" href="#home">Home</a></li> -->
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn">Links</a>
       <div class="dropdown-content">
@@ -26,23 +25,24 @@
         <!-- <a href="#">Link 3</a> -->
       </div>
     </li>
-    <li><a id="bars" href="https://forms.gle/akCWaTozv7p2zpWy5" target="_blank"> Submit Ya Links</a></li>
+    <li>
+      <a id="bars" href="https://forms.gle/akCWaTozv7p2zpWy5" target="_blank">
+        Submit Ya Links</a>
+    </li>
     <li><a id="roll" href="#" onclick="randomSite()"> ROLL!</a></li>
     <li><a id="tryAgain" href="#" onclick="tryAgain()">&#8635;</a></li>
-    <li id="addrBar"><input id="current" type="text" readonly="readonly"><a href="#" onclick="newTab()">[IN NEW TAB]</a></li>
+    <li id="addrBar">
+      <input id="current" type="text" readonly="readonly" /><a href="#" onclick="newTab()">[IN NEW TAB]</a>
+    </li>
   </ul>
-  <!-- Loading Indicator -->
-  <!-- <div id="loading">
-    <h2>LOADING. . .</h2>
-  </div> -->
-  
+
   <iframe id="encounterFrame" seamless src="splash.html" allowfullscreen="true">
   </iframe>
 
   <script src="links.js"></script>
   <script>
     "use strict";
-    const $ = selector => document.querySelector(selector);
+    const $ = (selector) => document.querySelector(selector);
 
     // Disclaimer
     function disclaim() {
@@ -52,38 +52,34 @@
     }
 
     // When the iFrame is (almost) done loading
-    $("#encounterFrame").addEventListener('load', function () {
-
+    $("#encounterFrame").addEventListener("load", function () {
       // Return to normal
-      $("#current").style.backgroundColor = 'white';
-      $("#current").style.animationIterationCount = "1"
+      $("#current").style.backgroundColor = "white";
+      $("#current").style.animationIterationCount = "1";
     });
 
     // Update iFrame and current link
     function randomSite() {
       var i = parseInt(Math.random() * links.length);
-      var newLink = links[i]
-      // User feedback so they dont smash button
+      var newLink = links[i];
+      // User feedback so they dont smash buttons
       $("#current").style.backgroundColor = "lightgrey";
-      $("#current").style.animation = "pulse 2s infinite"
+      $("#current").style.animation = "pulse 2s infinite";
 
       $("#encounterFrame").src = newLink;
 
       $("#current").value = newLink;
-      // $("#current").href = newLink;
-      // $("#current").target = "_blank";
     }
 
     // Try to force iFrame to load
     function tryAgain() {
-
       var link = $("#current").value;
       if (link === undefined) {
         return;
       }
 
       $("#current").style.backgroundColor = "lightgrey";
-      $("#current").style.animation = "pulse 2s infinite"
+      $("#current").style.animation = "pulse 2s infinite";
 
       // try 10 times
       let i = 10;
@@ -92,12 +88,11 @@
         var frameSrc = $("#encounterFrame").src;
         i--;
       } while (link !== frameSrc && i >= 0);
-
     }
 
     function specifSite(newLink) {
       $("#current").style.backgroundColor = "lightgrey";
-      $("#current").style.animation = "pulse 2s infinite"
+      $("#current").style.animation = "pulse 2s infinite";
 
       $("#encounterFrame").src = newLink;
     }
@@ -107,13 +102,9 @@
       if (link === undefined) {
         return;
       }
-      
-      window.open(
-        link, "_blank");
 
+      window.open(link, "_blank");
     }
-
-
   </script>
 </body>
 
